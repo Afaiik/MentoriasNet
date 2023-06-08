@@ -7,18 +7,18 @@
             CantidadCombustible = cantidadCombustibleInicial;
         }
 
+        public Auto(bool tieneBaul, int cantidadCombustibleInicial)
+        {
+            TieneBaul = tieneBaul;
+            CantidadCombustible = cantidadCombustibleInicial;
+        }
+
         public bool TieneBaul { get; set; }
 
         public int CantidadCombustible { get; set; }
 
-        public string Doblar()
-        {
-            return "Estoy Doblando";
-        }
+        //public abstract int CargarCombustible(int cantidad);
 
-        public string[] FotoLink { get; set; }
-
-        public abstract int CargarCombustible(int cantidad);
-
+        public abstract void Acelerar();
     }
 }

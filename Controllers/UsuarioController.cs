@@ -89,28 +89,36 @@ namespace PracticasMentoria1.Controllers
         [HttpGet("PruebaVehiculo")]
         public IActionResult PruebaVehiculo()
         {
-            AutoElectrico vehiculo = new AutoElectrico();
+            AutoElectrico elec = new AutoElectrico(1, true, 100);
+            elec.CantidadBateria = 200;
 
-            vehiculo.Marca = "Ford";
-            vehiculo.CantidadRuedas = 2;
-            vehiculo.EstaPrendido = false;
+            AutoNaftero nafti = new AutoNaftero(true, true, 100);
+            elec.Acelerar();
+            nafti.Acelerar();
 
-            vehiculo.Prender();
+            Auto padre = elec;
+            Auto padreNafti = nafti;
 
-            AutoElectrico tesla = new AutoElectrico();
+            padre.Acelerar();
+            padreNafti.Acelerar();
 
-            //string[] foto;
+            List<AutoElectrico> listaElectricos = new List<AutoElectrico>();
+            listaElectricos.Add(elec);
+            //listaElectricos.Add(nafti);
 
-            //using (var reader = StreamReader())
-            //{
-            //    while (reader.Read())
-            //    {
-            //        foto += reader;
-            //    }
-            //}
+            List<Auto> listaPadre = new List<Auto>();
+            listaPadre.Add(elec);
+            listaPadre.Add(nafti);
 
-            return Ok(vehiculo);
+            elec = (AutoElectrico)padre;
+
+            return Ok();
         }
 
+        /*
+         1- Crear una clase abstracta (Padre) con un metodo abstracto
+         2- Crear 2 clases hijas que hereden de la 1
+         3- Hacer un ejemplo en el que se note que hacen cosas diferentes
+         */
     }
 }

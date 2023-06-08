@@ -6,14 +6,16 @@
         {
 
         }
+        public AutoNaftero(bool tieneCaja, bool baul, int cantidadCombustible) : base(baul, cantidadCombustible)
+        {
+            TieneCaja = tieneCaja;
+        }
 
         public bool TieneCaja { get; set; }
-        public int CantidadNafta { get; set; }
 
-        public override int CargarCombustible(int cantidad)
+        public override void Acelerar()
         {
-            CantidadNafta = cantidad;
-            return CantidadNafta;
+            CantidadCombustible -= 15;
         }
     }
 }

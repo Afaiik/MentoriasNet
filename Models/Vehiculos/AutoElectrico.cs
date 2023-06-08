@@ -7,13 +7,16 @@
 
         }
 
-        public int CantidadBateria { get; set; }
-
-        public override int CargarCombustible(int cantidad)
+        public AutoElectrico(int cantidadBateria, bool baul, int cantidadCombustible) : base(baul, cantidadCombustible)
         {
-            CantidadBateria = cantidad;
-            return CantidadBateria;
+            CantidadBateria = cantidadBateria;
         }
 
+        public int CantidadBateria { get; set; }
+
+        public override void Acelerar()
+        {
+            CantidadCombustible -= 5;
+        }
     }
 }
